@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\rservice.proto\"\x06\n\x04Null\"A\n\x06Ticket\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x14\n\x0cstory_points\x18\x03 \x01(\r\")\n\x0c\x43onfirmation\x12\x19\n\x11\x65xpected_dateline\x18\x01 \x01(\t2J\n\x0bTestService\x12\x16\n\x06Health\x12\x05.Null\x1a\x05.Null\x12#\n\tAddTicket\x12\x07.Ticket\x1a\r.Confirmationb\x06proto3')
+  serialized_pb=_b('\n\rservice.proto\"\x06\n\x04Null\"J\n\x10Time_Calculation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x13\n\x0btime_period\x18\x03 \x01(\r\"(\n\x0b\x43\x61lc_Result\x12\x19\n\x11\x65xpected_dateline\x18\x01 \x01(\t2\\\n\x0bTestService\x12\x16\n\x06Health\x12\x05.Null\x1a\x05.Null\x12\x35\n\x12\x41\x64\x64TimeCalculation\x12\x11.Time_Calculation\x1a\x0c.Calc_Resultb\x06proto3')
 )
 
 
@@ -49,29 +49,29 @@ _NULL = _descriptor.Descriptor(
 )
 
 
-_TICKET = _descriptor.Descriptor(
-  name='Ticket',
-  full_name='Ticket',
+_TIME_CALCULATION = _descriptor.Descriptor(
+  name='Time_Calculation',
+  full_name='Time_Calculation',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='Ticket.name', index=0,
+      name='name', full_name='Time_Calculation.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='description', full_name='Ticket.description', index=1,
+      name='description', full_name='Time_Calculation.description', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='story_points', full_name='Ticket.story_points', index=2,
+      name='time_period', full_name='Time_Calculation.time_period', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -90,19 +90,19 @@ _TICKET = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=25,
-  serialized_end=90,
+  serialized_end=99,
 )
 
 
-_CONFIRMATION = _descriptor.Descriptor(
-  name='Confirmation',
-  full_name='Confirmation',
+_CALC_RESULT = _descriptor.Descriptor(
+  name='Calc_Result',
+  full_name='Calc_Result',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='expected_dateline', full_name='Confirmation.expected_dateline', index=0,
+      name='expected_dateline', full_name='Calc_Result.expected_dateline', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -120,13 +120,13 @@ _CONFIRMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=92,
-  serialized_end=133,
+  serialized_start=101,
+  serialized_end=141,
 )
 
 DESCRIPTOR.message_types_by_name['Null'] = _NULL
-DESCRIPTOR.message_types_by_name['Ticket'] = _TICKET
-DESCRIPTOR.message_types_by_name['Confirmation'] = _CONFIRMATION
+DESCRIPTOR.message_types_by_name['Time_Calculation'] = _TIME_CALCULATION
+DESCRIPTOR.message_types_by_name['Calc_Result'] = _CALC_RESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Null = _reflection.GeneratedProtocolMessageType('Null', (_message.Message,), dict(
@@ -136,19 +136,19 @@ Null = _reflection.GeneratedProtocolMessageType('Null', (_message.Message,), dic
   ))
 _sym_db.RegisterMessage(Null)
 
-Ticket = _reflection.GeneratedProtocolMessageType('Ticket', (_message.Message,), dict(
-  DESCRIPTOR = _TICKET,
+Time_Calculation = _reflection.GeneratedProtocolMessageType('Time_Calculation', (_message.Message,), dict(
+  DESCRIPTOR = _TIME_CALCULATION,
   __module__ = 'service_pb2'
-  # @@protoc_insertion_point(class_scope:Ticket)
+  # @@protoc_insertion_point(class_scope:Time_Calculation)
   ))
-_sym_db.RegisterMessage(Ticket)
+_sym_db.RegisterMessage(Time_Calculation)
 
-Confirmation = _reflection.GeneratedProtocolMessageType('Confirmation', (_message.Message,), dict(
-  DESCRIPTOR = _CONFIRMATION,
+Calc_Result = _reflection.GeneratedProtocolMessageType('Calc_Result', (_message.Message,), dict(
+  DESCRIPTOR = _CALC_RESULT,
   __module__ = 'service_pb2'
-  # @@protoc_insertion_point(class_scope:Confirmation)
+  # @@protoc_insertion_point(class_scope:Calc_Result)
   ))
-_sym_db.RegisterMessage(Confirmation)
+_sym_db.RegisterMessage(Calc_Result)
 
 
 
@@ -158,8 +158,8 @@ _TESTSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=135,
-  serialized_end=209,
+  serialized_start=143,
+  serialized_end=235,
   methods=[
   _descriptor.MethodDescriptor(
     name='Health',
@@ -171,12 +171,12 @@ _TESTSERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='AddTicket',
-    full_name='TestService.AddTicket',
+    name='AddTimeCalculation',
+    full_name='TestService.AddTimeCalculation',
     index=1,
     containing_service=None,
-    input_type=_TICKET,
-    output_type=_CONFIRMATION,
+    input_type=_TIME_CALCULATION,
+    output_type=_CALC_RESULT,
     serialized_options=None,
   ),
 ])

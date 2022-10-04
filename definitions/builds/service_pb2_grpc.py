@@ -19,10 +19,10 @@ class TestServiceStub(object):
             request_serializer=service__pb2.Null.SerializeToString,
             response_deserializer=service__pb2.Null.FromString,
         )
-        self.AddTicket = channel.unary_unary(
-            "/TestService/AddTicket",
-            request_serializer=service__pb2.Ticket.SerializeToString,
-            response_deserializer=service__pb2.Confirmation.FromString,
+        self.AddTimeCalculation = channel.unary_unary(
+            "/TestService/AddTimeCalculation",
+            request_serializer=service__pb2.Time_Calculation.SerializeToString,
+            response_deserializer=service__pb2.Calc_Result.FromString,
         )
 
 
@@ -37,7 +37,7 @@ class TestServiceServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
-    def AddTicket(self, request, context):
+    def AddTimeCalculation(self, request, context):
         # missing associated documentation comment in .proto file
         pass
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -52,10 +52,10 @@ def add_TestServiceServicer_to_server(servicer, server):
             request_deserializer=service__pb2.Null.FromString,
             response_serializer=service__pb2.Null.SerializeToString,
         ),
-        "AddTicket": grpc.unary_unary_rpc_method_handler(
-            servicer.AddTicket,
-            request_deserializer=service__pb2.Ticket.FromString,
-            response_serializer=service__pb2.Confirmation.SerializeToString,
+        "AddTimeCalculation": grpc.unary_unary_rpc_method_handler(
+            servicer.AddTimeCalculation,
+            request_deserializer=service__pb2.Time_Calculation.FromString,
+            response_serializer=service__pb2.Calc_Result.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(

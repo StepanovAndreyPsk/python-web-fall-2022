@@ -1,6 +1,6 @@
 import grpc
 
-from definitions.builds.service_pb2 import Null, Ticket
+from definitions.builds.service_pb2 import Null, Time_Calculation
 from definitions.builds.service_pb2_grpc import TestServiceStub
 
 
@@ -9,8 +9,8 @@ def main():
         client = TestServiceStub(channel)
         client.Health(Null())
 
-        confirmation = client.AddTicket(
-            Ticket(name="SomeTicket", description="...", story_points=2)
+        confirmation = client.AddTimeCalculation(
+            Time_Calculation(name="SomeTicket", description="...", time_period=2)
         )
 
         print(confirmation.expected_dateline)

@@ -2,17 +2,17 @@ syntax = "proto3";
 
 message Null {}
 
-message Ticket {
+message Time_Calculation {
     string name = 1;
     string description = 2;
-    uint32 story_points = 3;
+    uint32 time_period = 3;
 }
 
-message Confirmation {
+message Calc_Result {
     string expected_dateline = 1;
 }
 
 service TestService {
     rpc Health(Null) returns (Null);
-    rpc AddTicket(Ticket) returns (Confirmation);
+    rpc AddTimeCalculation(Time_Calculation) returns (Calc_Result);
 }

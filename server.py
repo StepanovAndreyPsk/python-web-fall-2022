@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 import grpc
 
-from definitions.builds.service_pb2 import Confirmation
+from definitions.builds.service_pb2 import Calc_Result
 from definitions.builds.service_pb2_grpc import (
     TestServiceServicer,
     add_TestServiceServicer_to_server,
@@ -14,10 +14,10 @@ class Service(TestServiceServicer):
     def Health(self, request, context):
         return request
 
-    def AddTicket(self, request, context):
-        expected_dateline = datetime.utcnow() + timedelta(days=request.story_points)
-        return Confirmation(
-            expected_dateline=expected_dateline.strftime("%Y-%m-%d %H:%M:%S")
+    def AddTimeCalculation(self, request, context):
+        calulation_result = datetime.utcnow() + timedelta(days=request.time_period)
+        return Calc_Result(
+            expected_dateline=calulation_result.strftime("%Y-%m-%d %H:%M:%S")
         )
 
 
@@ -27,7 +27,6 @@ def execute_server():
     server.add_insecure_port("[::]:3000")
     server.start()
 
-    print("The server is up and running...")
     server.wait_for_termination()
 
 
